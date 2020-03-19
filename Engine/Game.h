@@ -23,6 +23,8 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Paddle.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -40,6 +42,8 @@ private:
 private:
 	MainWindow& wnd;
 	Graphics gfx;
+    Paddle paddle;
+    FrameTimer timer;
 	/********************************/
 	/*  User Variables              */
 	/********************************/

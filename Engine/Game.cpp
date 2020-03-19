@@ -24,7 +24,8 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+    paddle{(float)Graphics::ScreenWidth / 2.0f - 50.0f, 500.0f, 100.0f, 20.0f}
 {
 }
 
@@ -38,8 +39,13 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+    float dt = timer.Mark();
+
+    if (wnd.kbd.KeyIsPressed(VK_LEFT))  paddle.move(-dt);
+    if (wnd.kbd.KeyIsPressed(VK_RIGHT)) paddle.move(dt);
 }
 
 void Game::ComposeFrame()
 {
+    paddle.draw(gfx);
 }
